@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --color-volt: #c8f400;
+    --color-volt-light: #d4f73a;
+    --color-ink: #0d0d0d;
+
+    --font-sans: "DM Sans", sans-serif;
+    --font-display: "Syne", sans-serif;
+
+    --animate-shimmer: shimmer 1.5s infinite;
+}
