@@ -1,6 +1,7 @@
 import { LogOut, ShoppingCart, Zap } from "lucide-react";
 import { NavLink, useNavigate } from "react-router";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
     const { loggedInUser, setLoggedInUser } = useAuth();
@@ -8,6 +9,11 @@ const Navbar = () => {
 
     const onLogout = () => {
         setLoggedInUser(undefined);
+        localStorage.removeItem("log-user");
+        toast.success("Log out successfully", {
+            duration: 2000,
+            position: "bottom-right",
+        });
         navigate("/login");
     };
 
@@ -29,7 +35,7 @@ const Navbar = () => {
                 <NavLink
                     aria-current="page"
                     className={({ isActive }) =>
-                        `${isActive ? "text-volt" : ""}`
+                        `${isActive ? "text-volt" : "text-[#919191]"} text-sm hover:text-white/80`
                     }
                     to="/"
                 >
@@ -37,7 +43,7 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) =>
-                        `${isActive ? "text-volt" : ""}`
+                        `${isActive ? "text-volt" : "text-[#919191]"} text-sm hover:text-white/80`
                     }
                     to="/products"
                 >
@@ -45,7 +51,7 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) =>
-                        `${isActive ? "text-volt" : ""}`
+                        `${isActive ? "text-volt" : "text-[#919191]"} text-sm hover:text-white/80`
                     }
                     to="/about"
                 >
@@ -61,13 +67,13 @@ const Navbar = () => {
                         {loggedInUser?.name}
                     </span>
                 </div>
-                <button className="relative rounded-xl border border-white/10 bg-white/8 p-2.5 transition-all hover:bg-white/12">
+                <button className="relative cursor-pointer rounded-xl border border-white/10 bg-ink p-2.5 transition-all">
                     <ShoppingCart size={18} />
                 </button>
                 <button
                     onClick={onLogout}
                     title="Logout"
-                    className="cursor-pointer rounded-xl border border-white/10 bg-white/8 p-2.5 text-white/60 transition-all hover:border-red-500/30 hover:bg-red-500/20 hover:text-red-400"
+                    className="cursor-pointer rounded-xl border border-white/10 bg-ink p-2.5 text-white/60 transition-all hover:border-red-500/30 hover:bg-red-500/20 hover:text-red-400"
                 >
                     <LogOut size={18} />
                 </button>

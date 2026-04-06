@@ -50,7 +50,7 @@ export const productData: ProductDataType[] = [
         description:
             "Ultra HD TV with built-in streaming apps and voice control. Great for home entertainment.",
         category: "electronics",
-        image: "https://images.unsplash.com/photo-1593797364077-307dc7ab55d9?w=400",
+        image: "https://kannankandy.com/wp-content/uploads/2025/06/81mLFIaCYwL._SX522_-1.jpg",
         rating: { rate: 4.6, count: 280 },
         features: [
             "4K Resolution",
@@ -99,7 +99,7 @@ export const productData: ProductDataType[] = [
         description:
             "Rugged speaker with 360-degree sound and IP67 rating for outdoor use.",
         category: "electronics",
-        image: "https://images.unsplash.com/photo-1613339163863-7bc9b0d9e8a4?w=400",
+        image: "https://www.myg.in/images/thumbnails/300/300/detailed/60/jbl6.jpg.png",
         rating: { rate: 4.5, count: 340 },
         features: [
             "IP67 Waterproof",
@@ -115,7 +115,7 @@ export const productData: ProductDataType[] = [
         description:
             "Ergonomic stand to elevate your laptop for better posture and cooling.",
         category: "electronics",
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83defb?w=400",
+        image: "https://oboeshop.in/cdn/shop/products/61-_0W3MZgL._SL1500.jpg?v=1693830533",
         rating: { rate: 4.1, count: 67 },
         features: [
             "Adjustable Height",
@@ -147,7 +147,7 @@ export const productData: ProductDataType[] = [
         description:
             "Thick, eco-friendly mat with alignment lines for yoga and Pilates.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1578631618876-73a4e8a3e6d5?w=400",
+        image: "https://homafy.com/wp-content/uploads/2024/05/yoga-mat-4.jpg",
         rating: { rate: 4.4, count: 145 },
         features: ["Non-Slip", "6mm Thick", "Eco-Friendly", "Alignment Lines"],
     },
@@ -158,7 +158,7 @@ export const productData: ProductDataType[] = [
         description:
             "Compact weights adjustable from 5-50 lbs for home strength training.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1571566880285-1451f7e3d0f8?w=400",
+        image: "https://hips.hearstapps.com/hmg-prod/images/bowflex-schlinger-6786dbe18ccd4.png?crop=1.00xw:0.959xh;0,0.0163xh",
         rating: { rate: 4.7, count: 89 },
         features: [
             "5-50 lbs Adjustable",
@@ -174,7 +174,7 @@ export const productData: ProductDataType[] = [
         description:
             "Ventilated helmet with MIPS safety tech for road and mountain biking.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1558618047-3c8c76fdd7e4?w=400",
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Bicycle_Helmet_0085.jpg",
         rating: { rate: 4.5, count: 312 },
         features: [
             "MIPS Safety",
@@ -190,7 +190,7 @@ export const productData: ProductDataType[] = [
         description:
             "5-band set with handles for full-body workouts at home or gym.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1599058913708-6a8f7e6c65b6?w=400",
+        image: "https://m.media-amazon.com/images/I/71-87y93B+L._AC_UF894,1000_QL80_.jpg",
         rating: { rate: 4.3, count: 178 },
         features: ["5 Strengths", "Handles Included", "Portable", "Latex Free"],
     },
@@ -201,7 +201,7 @@ export const productData: ProductDataType[] = [
         description:
             "Lightweight racket with oversized head for easy power and control.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1579952363873-27d3bfad9c77?w=400",
+        image: "https://sc0.blr1.cdn.digitaloceanspaces.com/article/135061-hcbvaxhryh-1579677947.jpg",
         rating: { rate: 4.2, count: 95 },
         features: [
             "Oversized Head",
@@ -217,7 +217,7 @@ export const productData: ProductDataType[] = [
         description:
             "Adjustable PVC rope with ball bearings for cardio and agility training.",
         category: "sports",
-        image: "https://images.unsplash.com/photo-1610548987414-9874e1d5d4d8?w=400",
+        image: "https://m.media-amazon.com/images/I/71O3d1JRZ0L.jpg",
         rating: { rate: 4.6, count: 456 },
         features: [
             "Adjustable Length",
@@ -260,7 +260,7 @@ export const productData: ProductDataType[] = [
         description:
             "Stretch denim jeans with flattering fit for all-day comfort.",
         category: "clothing",
-        image: "https://images.unsplash.com/photo-1487222474749-c0b5029f59df?w=400",
+        image: "https://freakins.com/cdn/shop/files/Aniwarya01525-Edit_54ec0cce-3005-4ec8-abfb-c6781cb95cad.jpg?v=1749908409",
         rating: { rate: 4.6, count: 389 },
         features: [
             "High Waist",
@@ -276,7 +276,7 @@ export const productData: ProductDataType[] = [
         description:
             "Cozy pullover hoodie with kangaroo pocket for cool weather layering.",
         category: "clothing",
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535a?w=400",
+        image: "https://prd.cc.duluthtrading.com/dw/image/v2/BBNM_PRD/on/demandware.static/-/Sites-dtc-master-catalog/default/dwc7a03dac/images/large/50307_alt_01.jpg?sw=980",
         rating: { rate: 4.7, count: 412 },
         features: [
             "Fleece Lined",
@@ -303,7 +303,7 @@ export const productData: ProductDataType[] = [
         description:
             "Lightweight midi dress with flowy fit for beach or casual outings.",
         category: "clothing",
-        image: "https://images.unsplash.com/photo-1574676309325-b1d4f4f2d829?w=400",
+        image: "https://www.urbansuburban.in/image/catalog/2024/drop4/dresses/S24-DRS-22-MC/2.jpg",
         rating: { rate: 4.5, count: 334 },
         features: [
             "Floral Print",
@@ -335,7 +335,7 @@ export const productData: ProductDataType[] = [
         description:
             "Soft wool blend socks in a 5-pack for warmth and moisture control.",
         category: "clothing",
-        image: "https://images.unsplash.com/photo-1597643978632-e0e24f2478dd?w=400",
+        image: "https://i.etsystatic.com/10866204/r/il/712e29/3079453748/il_570xN.3079453748_c9g7.jpg",
         rating: { rate: 4.6, count: 289 },
         features: ["Wool Blend", "Crew Height", "Moisture Wicking", "5-Pack"],
     },
@@ -346,7 +346,7 @@ export const productData: ProductDataType[] = [
         description:
             "Packable jacket with sealed seams for all-weather protection.",
         category: "clothing",
-        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400", // Note: Reused for variety; adjust as needed
+        image: "https://www.switchbacktravel.com/sites/default/files/image_fields/Best%20Of%20Gear%20Articles/Hiking%20and%20Backpacking/Rain%20Jackets/Arc%27teryx%20Beta%20SL%20Jacket_1.jpeg",
         rating: { rate: 4.4, count: 223 },
         features: ["Waterproof", "Packable", "Sealed Seams", "Hooded"],
     },
@@ -357,7 +357,7 @@ export const productData: ProductDataType[] = [
         description:
             "Rustic oak table with storage shelf for modern living rooms.",
         category: "furniture",
-        image: "https://images.unsplash.com/photo-1556911220-b1e64d5b8ab9?w=400",
+        image: "https://www.nismaayadecor.in/cdn/shop/files/brisa-solid-oak-wood-coffee-table_3.png?v=1697691335",
         rating: { rate: 4.5, count: 167 },
         features: [
             "Oak Wood",
@@ -373,7 +373,7 @@ export const productData: ProductDataType[] = [
         description:
             "Tufted armchair with gold legs for stylish bedroom seating.",
         category: "furniture",
-        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3130?w=400",
+        image: "https://m.media-amazon.com/images/I/8127mw-OLvL.jpg",
         rating: { rate: 4.7, count: 134 },
         features: [
             "Velvet Upholstery",
@@ -404,7 +404,7 @@ export const productData: ProductDataType[] = [
         description:
             "Solid wood table seats 4-8 with leaf extension for gatherings.",
         category: "furniture",
-        image: "https://images.unsplash.com/photo-1550583725-c4b8e6b0f8e1?w=400",
+        image: "https://cdn.homedit.com/wp-content/uploads/2014/08/montana-extending-rectangular-table1.jpg",
         rating: { rate: 4.6, count: 98 },
         features: ["Extendable", "Solid Wood", "Seats 8", "Butterfly Leaf"],
     },
@@ -435,7 +435,7 @@ export const productData: ProductDataType[] = [
         price: 299.99,
         description: "4-chair set with glass-top table for garden relaxation.",
         category: "furniture",
-        image: "https://images.unsplash.com/photo-1564013798647-9da8126b9f95?w=400",
+        image: "https://images.woodenstreet.de/image/cache/data/outdoor-set/milano/set-of-4/new-logo/1-750x650.jpg",
         rating: { rate: 4.2, count: 123 },
         features: [
             "Weatherproof",
@@ -451,7 +451,7 @@ export const productData: ProductDataType[] = [
         description:
             "Low-profile stand holds up to 65-inch TV with hidden storage.",
         category: "furniture",
-        image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400",
+        image: "https://www.casafurnishing.in/wp-content/uploads/2022/06/Tv-STand-2.jpg",
         rating: { rate: 4.4, count: 189 },
         features: ["Holds 65in TV", "2 Drawers", "Cable Holes", "Rustic Wood"],
     },
@@ -462,7 +462,7 @@ export const productData: ProductDataType[] = [
         description:
             "Calming herbal tea in 50 biodegradable bags for daily wellness.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1509169252195-5bb44a066ab8?w=400",
+        image: "https://organicindia.com/cdn/shop/files/Untitled-1_0006__51A5041.jpg?v=1704457220&width=1445",
         rating: { rate: 4.6, count: 456 },
         features: ["Organic", "50 Bags", "Biodegradable", "Caffeine Free"],
     },
@@ -472,7 +472,7 @@ export const productData: ProductDataType[] = [
         price: 4.99,
         description: "Rich cacao bar with sea salt for gourmet snacking.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1570784332178-f1e6b0b1fbed?w=400",
+        image: "https://shop.amul.com/s/62fa94df8c13af2e242eba16/66892dbe7a7dfd8710e7d86b/01-hero-image_amul-chocolate-dark-chocolate-55percent-pack-of-2.png",
         rating: { rate: 4.7, count: 678 },
         features: ["70% Cacao", "Sea Salt", "Vegan", "Fair Trade"],
     },
@@ -494,7 +494,7 @@ export const productData: ProductDataType[] = [
         description:
             "Natural almond butter with no added sugar for smoothies or toast.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1542994893-e9757e5b4d92?w=400",
+        image: "https://vegandukan.com/cdn/shop/files/abssfc_200g_info-01.jpg?v=1758782448&width=1946",
         rating: { rate: 4.4, count: 234 },
         features: ["Crunchy", "No Sugar", "16oz Jar", "Gluten Free"],
     },
@@ -504,7 +504,7 @@ export const productData: ProductDataType[] = [
         price: 5.99,
         description: "Tomato basil sauce made with fresh Italian herbs.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1621996346565-e3adc653d99b?w=400",
+        image: "https://www.cookingclassy.com/wp-content/uploads/2016/06/marinara-sauce-18.jpg",
         rating: { rate: 4.6, count: 389 },
         features: ["Fresh Herbs", "24oz Jar", "No Preservatives", "Vegan"],
     },
@@ -515,7 +515,7 @@ export const productData: ProductDataType[] = [
         description:
             "Whey protein powder with 25g per scoop for post-workout recovery.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1612838191861-ad7bdea7f7bf?w=400",
+        image: "https://m.media-amazon.com/images/I/81G0h2hEchL._AC_UF894,1000_QL80_.jpg",
         rating: { rate: 4.3, count: 167 },
         features: ["25g Protein", "Chocolate Flavor", "2lb Tub", "Low Carb"],
     },
@@ -542,7 +542,7 @@ export const productData: ProductDataType[] = [
         description:
             "Pure Manuka honey with UMF 10+ for natural health benefits.",
         category: "food & beverages",
-        image: "https://images.unsplash.com/photo-1551615593-b7e92eacdb4e?w=400",
+        image: "https://m.media-amazon.com/images/I/712Vvq2aO9L.jpg",
         rating: { rate: 4.7, count: 298 },
         features: ["UMF 10+", "Raw & Unfiltered", "250g Jar", "Antibacterial"],
     },
@@ -552,7 +552,7 @@ export const productData: ProductDataType[] = [
         price: 14.99,
         description: "Gentle daily shampoo for all hair types with argan oil.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1611945387124-6d25721551d1?w=400",
+        image: "https://cerisenaturals.com/cdn/shop/articles/best_sulfate_free_shampoo.png?v=1685352469",
         rating: { rate: 4.5, count: 345 },
         features: ["Sulfate-Free", "Argan Oil", "12oz Bottle", "Color Safe"],
     },
@@ -563,7 +563,7 @@ export const productData: ProductDataType[] = [
         description:
             "Lightweight face cream with hyaluronic acid for 24-hour moisture.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1571902943206-4b8e4e3da98b?w=400",
+        image: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/cet/cet11700/y/63.jpg",
         rating: { rate: 4.6, count: 412 },
         features: [
             "Hyaluronic Acid",
@@ -578,7 +578,7 @@ export const productData: ProductDataType[] = [
         price: 7.99,
         description: "Shea butter balm with natural tint and sun protection.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1615204183469-7d8e4c9d69b2?w=400",
+        image: "https://media6.ppl-media.com/tr:h-750,w-750,c-at_max,dpr-2,q-40/static/img/product/404371/ny-bae-chocoberry-lip-balm-4-5-gm_1_display_1763010234_b17d7344.jpg",
         rating: { rate: 4.4, count: 278 },
         features: ["SPF 15", "Tinted", "Shea Butter", "Long Lasting"],
     },
@@ -588,7 +588,7 @@ export const productData: ProductDataType[] = [
         price: 18.99,
         description: "Foaming gel cleanser removes makeup without drying skin.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1581560631732-6062b5bd694d?w=400",
+        image: "https://plumgoodness.com/cdn/shop/files/01_56929db7-8603-4976-b8c8-c8a1b7eaaa5a.jpg?v=1771581308&width=1214",
         rating: { rate: 4.5, count: 189 },
         features: ["Foaming Gel", "Oil Free", "6oz Tube", "Gentle Exfoliate"],
     },
@@ -598,7 +598,7 @@ export const productData: ProductDataType[] = [
         price: 12.99,
         description: "Rich lotion absorbs quickly to soothe dry skin.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+        image: "https://m.media-amazon.com/images/I/71unpxDTqEL._AC_UF350,350_QL80_.jpg",
         rating: { rate: 4.3, count: 234 },
         features: [
             "Shea Butter",
@@ -614,7 +614,7 @@ export const productData: ProductDataType[] = [
         description:
             "High-shine top coat for chip-resistant manicures up to 2 weeks.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1606890658317-7d4e67dd35b2?w=400",
+        image: "https://m.media-amazon.com/images/I/61bbT6ZNKpL._AC_UF1000,1000_QL80_.jpg",
         rating: { rate: 4.6, count: 156 },
         features: ["Chip Resistant", "High Shine", "Quick Dry", "0.5oz Bottle"],
     },
@@ -625,7 +625,7 @@ export const productData: ProductDataType[] = [
         description:
             "Aluminum-free deodorant with baking soda for all-day freshness.",
         category: "personal care & beauty",
-        image: "https://images.unsplash.com/photo-1596436859941-9d695f3deefd?w=400",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Deodorant.jpg",
         rating: { rate: 4.2, count: 321 },
         features: [
             "Aluminum Free",
@@ -641,7 +641,7 @@ export const productData: ProductDataType[] = [
         description:
             "Induction-ready pan for healthy cooking with minimal oil.",
         category: "home & kitchen",
-        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3130?w=400",
+        image: "https://m.media-amazon.com/images/I/61k-5v-ENSL.jpg",
         rating: { rate: 4.5, count: 267 },
         features: ["Non-Stick", "Induction Ready", "Oven Safe", "PFOA Free"],
     },
@@ -652,7 +652,7 @@ export const productData: ProductDataType[] = [
         description:
             "High-speed blender for smoothies, soups, and ice crushing.",
         category: "home & kitchen",
-        image: "https://images.unsplash.com/photo-1563379096513-ece3e8a8abd5?w=400",
+        image: "https://image.made-in-china.com/202f0j00PcNoZCTDnebt/Stainless-Steel-Jug-Blender-Grinder-Chopper-High-Speed-Kitchen-Appliances-Commercial-Smoothie-Electric-Blander.webp",
         rating: { rate: 4.4, count: 198 },
         features: ["High Speed", "64oz Jar", "Ice Crush", "Pulse Function"],
     },
@@ -673,3 +673,22 @@ export const productData: ProductDataType[] = [
         ],
     },
 ];
+
+export const perCategoryCountResult = productData.reduce(
+    (acc: Record<string, number>, item) => {
+        const category = item.category;
+        if (!acc[category]) {
+            acc[category] = 0;
+        }
+        acc[category]++;
+
+        return acc;
+    },
+    {},
+);
+
+export const topRatedItems = productData.filter(
+    (elem) => elem.rating.rate > 4.5,
+);
+
+export const premiumItems = productData.filter((elem) => elem.price > 300);

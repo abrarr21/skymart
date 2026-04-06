@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { RegisterDataType } from "../pages/Register";
 import type { LoginDataType } from "../pages/Login";
@@ -10,17 +10,8 @@ type AuthContext = {
     setLoggedInUser: Dispatch<SetStateAction<LoginDataType | undefined>>;
 };
 
-const Auth = createContext<AuthContext | null>(null);
-
-export const useAuth = () => {
-    const context = useContext(Auth);
-
-    if (!context) {
-        throw new Error("useAuth must be within AuthProvider context");
-    }
-
-    return context;
-};
+// eslint-disable-next-line react-refresh/only-export-components
+export const Auth = createContext<AuthContext | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [registeredUser, setRegisteredUser] = useState<RegisterDataType[]>(

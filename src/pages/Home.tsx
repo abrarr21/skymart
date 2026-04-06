@@ -13,11 +13,18 @@ import {
     Shield,
     HomeIcon,
 } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 import { NavLink } from "react-router";
+import {
+    perCategoryCountResult,
+    premiumItems,
+    topRatedItems,
+} from "../data/productData";
+import FeatureItem from "../components/FeautreItem";
 
 export default function Home() {
     const { loggedInUser } = useAuth();
+
     return (
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
             <div className="relative mb-10 overflow-hidden rounded-3xl border border-white/80 bg-[#111] p-8 sm:p-12">
@@ -46,7 +53,7 @@ export default function Home() {
                                 <ArrowRight className="h-4 w-4" />
                             </NavLink>
                             <NavLink
-                                className="flex items-center gap-2 rounded-2xl border border-white/10 bg-transparent px-4 py-3 text-white/60"
+                                className="flex items-center gap-2 rounded-2xl border border-white/10 bg-transparent px-4 py-3 text-sm text-white/60 hover:border-white/40"
                                 to="/products"
                             >
                                 View All Products
@@ -62,7 +69,7 @@ export default function Home() {
                                 Products Available
                             </p>
                         </div>
-                        <div className="rounded-2xl border border-white/80 bg-white/4 px-6 py-4 text-center">
+                        <div className="rounded-2xl border border-white/80 bg-ink px-6 py-4 text-center">
                             <p className="font-heading text-2xl font-bold text-white">
                                 Free
                             </p>
@@ -146,13 +153,13 @@ export default function Home() {
                     <h2 className="font-heading text-xl font-bold">
                         Shop by Category
                     </h2>
-                    <a
+                    <NavLink
                         className="flex items-center gap-1 text-sm text-volt transition-colors hover:text-volt-light"
-                        href="/products"
+                        to={`/products`}
                     >
                         View All
                         <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
+                    </NavLink>
                 </div>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                     <NavLink
@@ -163,7 +170,9 @@ export default function Home() {
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
                             electronics
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">17 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult?.electronics ?? 0} items
+                        </p>
                     </NavLink>
                     <NavLink
                         className="group rounded-2xl border border-white/20 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/95"
@@ -173,7 +182,9 @@ export default function Home() {
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
                             clothing
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">2 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult?.clothing ?? 0} items
+                        </p>
                     </NavLink>
                     <NavLink
                         className="group rounded-2xl border border-white/20 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/95"
@@ -183,7 +194,9 @@ export default function Home() {
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
                             furniture
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">3 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult?.furniture ?? 0} items
+                        </p>
                     </NavLink>
                     <NavLink
                         className="group rounded-2xl border border-white/20 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/95"
@@ -191,9 +204,11 @@ export default function Home() {
                     >
                         <HomeIcon className="mx-auto mb-3 h-12 w-12 text-gray-700 group-hover:text-gray-900" />
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
-                            home
+                            home & kitchen
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">14 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult["home & kitchen"]} items
+                        </p>
                     </NavLink>
                     <NavLink
                         className="group rounded-2xl border border-white/20 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/95"
@@ -203,7 +218,9 @@ export default function Home() {
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
                             sports
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">8 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult?.sports ?? 0} items
+                        </p>
                     </NavLink>
                     <NavLink
                         className="group rounded-2xl border border-white/20 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/95"
@@ -211,11 +228,26 @@ export default function Home() {
                     >
                         <Watch className="mx-auto mb-3 h-12 w-12 text-gray-700 group-hover:text-gray-900" />
                         <p className="font-body text-sm font-semibold text-ink/80 capitalize">
-                            accessories
+                            personal care
                         </p>
-                        <p className="mt-1 text-xs text-ink/50">6 items</p>
+                        <p className="mt-1 text-xs text-ink/50">
+                            {perCategoryCountResult["personal care & beauty"] &&
+                                0}{" "}
+                            items
+                        </p>
                     </NavLink>
                 </div>
+            </section>
+
+            <section className="mb-8">
+                <FeatureItem
+                    items={topRatedItems.slice(0, 5)}
+                    cardName={"Top Rate"}
+                />
+                <FeatureItem
+                    items={premiumItems.slice(0, 5)}
+                    cardName={"Premium Products"}
+                />
             </section>
 
             {/* Product sections */}

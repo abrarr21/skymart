@@ -1,7 +1,7 @@
 import { ArrowRight, Eye, Lock, Mail, User, Zap } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 import toast from "react-hot-toast";
 import { useState } from "react";
 
@@ -19,13 +19,13 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        watch,
+        control,
         reset,
         formState: { errors },
     } = useForm<RegisterDataType>({
         mode: "onChange",
     });
-    const password = watch("password");
+    const password = useWatch({ control, name: "password" });
 
     const { setRegisteredUser, registeredUser } = useAuth();
 

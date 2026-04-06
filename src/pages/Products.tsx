@@ -9,7 +9,7 @@ export default function Products() {
     return (
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="mb-8">
-                <h1 className="mb-2 font-heading text-3xl font-bold sm:text-4xl">
+                <h1 className="mb-2 text-3xl font-bold sm:text-4xl">
                     All Products
                 </h1>
                 <p className="font-body text-sm text-white/40">

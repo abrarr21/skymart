@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 import toast from "react-hot-toast";
 import { Navigate, Outlet } from "react-router";
 
@@ -8,12 +8,12 @@ const ProtectedRoute = () => {
 
     useEffect(() => {
         if (!loggedInUser) {
-            toast.error("please log in", {
+            toast.error("Not authorized, please log in", {
                 duration: 2000,
                 position: "bottom-right",
             });
         }
-    }, [loggedInUser]);
+    }, []);
 
     if (!loggedInUser) {
         return <Navigate to={"/login"} replace />;

@@ -2,7 +2,7 @@ import { ArrowRight, Eye, Lock, Mail, Zap } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 import toast from "react-hot-toast";
 
 export interface LoginDataType {
@@ -26,7 +26,7 @@ const Login = () => {
         );
 
         if (!user) {
-            toast.error("User not found", {
+            toast.error("Incorrect Email and Password", {
                 duration: 2000,
                 position: "bottom-right",
             });

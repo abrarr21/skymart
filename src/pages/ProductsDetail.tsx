@@ -11,13 +11,14 @@ import {
 } from "lucide-react";
 import { NavLink, useParams } from "react-router";
 import { productData } from "../data/productData";
+import { useState } from "react";
 
 export default function ProductDetail() {
     const { id } = useParams();
     const prod = productData;
-    console.log(prod);
-    const product = prod.find((obj) => obj.id === Number(id));
-    console.log(product);
+    const [heartClicked, setHeartClicked] = useState(false);
+
+    const singleProduct = prod.find((obj) => obj.id === Number(id));
     return (
         <main>
             <div className="animate-fade-in mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -32,11 +33,11 @@ export default function ProductDetail() {
                     </NavLink>
                     <span>/</span>
                     <span className="text-white/50 capitalize">
-                        {product?.category}
+                        {singleProduct?.category}
                     </span>
                     <span>/</span>
                     <span className="clamp-1 max-w-50 text-white/70">
-                        {product?.title}
+                        {singleProduct?.title}
                     </span>
                 </nav>
 
@@ -45,8 +46,8 @@ export default function ProductDetail() {
                     {/* Product Image */}
                     <div className="animate-scale-in flex aspect-square items-center justify-center rounded-3xl bg-white p-10">
                         <img
-                            src={product?.image}
-                            alt={product?.title}
+                            src={singleProduct?.image}
+                            alt={singleProduct?.title}
                             className="h-full w-full object-contain transition-transform duration-500 hover:scale-105"
                         />
                     </div>
@@ -55,11 +56,11 @@ export default function ProductDetail() {
                     <div className="animate-fade-up flex flex-col gap-5">
                         <span className="badge flex w-fit items-center gap-1 rounded-full border border-volt/20 bg-volt/10 px-3 py-1 text-xs text-volt capitalize">
                             <BadgeIcon className="h-3 w-3" />
-                            {product?.category}
+                            {singleProduct?.category}
                         </span>
 
                         <h1 className="font-heading text-2xl leading-tight font-bold text-white sm:text-3xl">
-                            {product?.title}
+                            {singleProduct?.title}
                         </h1>
 
                         {/* Rating */}
@@ -73,23 +74,23 @@ export default function ProductDetail() {
                                 ))}
                             </div>
                             <span className="text-sm font-semibold text-white/70">
-                                {product?.rating.rate}
+                                {singleProduct?.rating.rate}
                             </span>
                             <span className="text-sm text-white/30">
-                                ({product?.rating.count} reviews)
+                                ({singleProduct?.rating.count} reviews)
                             </span>
                         </div>
 
                         {/* Price */}
                         <div className="border-y border-white/80 py-4">
                             <span className="font-heading text-4xl font-bold text-volt">
-                                ${product?.price}
+                                ${singleProduct?.price}
                             </span>
                         </div>
 
                         {/* Description */}
                         <p className="font-body text-sm leading-relaxed text-white/50">
-                            {product?.description}
+                            {singleProduct?.description}
                         </p>
 
                         {/* Action Buttons */}
@@ -98,8 +99,13 @@ export default function ProductDetail() {
                                 <ShoppingCart className="h-5 w-5" />
                                 Add to Cart
                             </button>
-                            <button className="rounded-2xl border border-white/10 p-3.5 text-white/30 transition-all hover:border-red-500/30 hover:bg-red-500/5 hover:text-red-400">
-                                <Heart className="h-5 w-5" />
+                            <button
+                                onClick={() => setHeartClicked((p) => !p)}
+                                className={`rounded-2xl border border-white/10 p-3.5 ${heartClicked && "bg-red-300/15"} cursor-pointer text-white/30 transition-all hover:border-red-500/30 hover:text-red-400`}
+                            >
+                                <Heart
+                                    className={`h-5 w-5 ${heartClicked && "fill-red-500/80"}`}
+                                />
                             </button>
                         </div>
 
