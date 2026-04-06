@@ -1,5 +1,4 @@
-// ProductCard.jsx - Updated to match new data structure
-import { Star, ShoppingCart, Tag as BadgeIcon, Zap } from "lucide-react";
+import { Star, ShoppingCart, Tag as BadgeIcon } from "lucide-react";
 import type { ProductDataType } from "../data/productData";
 import { NavLink } from "react-router";
 

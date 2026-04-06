@@ -9,7 +9,6 @@ import {
     ChevronRight,
     Tag as BadgeIcon,
 } from "lucide-react";
-import ProductCard from "../components/ProductCard";
 import { NavLink, useParams } from "react-router";
 import { productData } from "../data/productData";
 
