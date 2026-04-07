@@ -12,6 +12,7 @@ import {
 import { NavLink, useParams } from "react-router";
 import { productData } from "../data/productData";
 import { useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -19,6 +20,18 @@ export default function ProductDetail() {
     const [heartClicked, setHeartClicked] = useState(false);
 
     const singleProduct = prod.find((obj) => obj.id === Number(id));
+
+    const currentIndex = prod.findIndex((obj) => obj.id === Number(id));
+    const nextProductId = prod[(currentIndex + 1) % prod.length].id;
+
+    const relatedProduct = prod
+        .filter(
+            (obj) =>
+                obj.category === singleProduct?.category &&
+                obj.id !== Number(id),
+        )
+        .slice(0, 5);
+
     return (
         <main>
             <div className="animate-fade-in mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -142,23 +155,27 @@ export default function ProductDetail() {
 
                         {/* Navigation */}
                         <div className="mt-6 flex gap-3">
-                            <a
+                            <NavLink
                                 className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-volt bg-volt px-4 py-3 font-heading text-sm font-semibold text-ink transition-all hover:bg-volt-light"
-                                href="/products/2"
+                                to={`/products/${nextProductId}`}
                             >
                                 Next
                                 <ChevronRight className="h-4 w-4" />
-                            </a>
+                            </NavLink>
                         </div>
-
-                        <section className="mt-12">
-                            <h2 className="mb-6 font-heading text-2xl font-bold">
-                                Related Products
-                            </h2>
-                            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"></div>
-                        </section>
                     </div>
                 </div>
+
+                <section className="mt-12">
+                    <h2 className="mb-6 font-heading text-2xl font-bold">
+                        Related Products
+                    </h2>
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                        {relatedProduct.map((elem) => (
+                            <ProductCard key={elem.id} {...elem} />
+                        ))}
+                    </div>
+                </section>
             </div>
         </main>
     );

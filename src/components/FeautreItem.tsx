@@ -5,9 +5,11 @@ import type { ProductDataType } from "../data/productData";
 type FeatureProp = {
     items: ProductDataType[];
     cardName: string;
+    link: string;
+    linkForItem: string;
 };
 
-const FeatureItem = ({ items, cardName }: FeatureProp) => {
+const FeatureItem = ({ items, cardName, link, linkForItem }: FeatureProp) => {
     return (
         <div className="mb-4 rounded-3xl border border-white/50 bg-ink p-6">
             {/* Header */}
@@ -19,7 +21,7 @@ const FeatureItem = ({ items, cardName }: FeatureProp) => {
                 <NavLink
                     className="flex items-center gap-1 text-xs text-volt hover:text-volt-light"
                     // to="/products?sort=rating"
-                    to={"/products"}
+                    to={link}
                 >
                     See all
                     <ArrowRight className="h-3 w-3" />
@@ -31,7 +33,7 @@ const FeatureItem = ({ items, cardName }: FeatureProp) => {
                 {items.map((item) => (
                     <NavLink
                         key={item.id}
-                        to={"#"}
+                        to={`${linkForItem}/${item.id}`}
                         className="group flex items-center gap-3 rounded-2xl border border-white/20 bg-white/3 p-3 transition-all duration-200 hover:border-volt/30 hover:bg-white/6"
                     >
                         {/* Image */}

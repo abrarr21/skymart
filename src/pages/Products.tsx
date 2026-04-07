@@ -2,13 +2,29 @@ import { Search, ChevronDown, X } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import { productData, type ProductDataType } from "../data/productData";
 import { useState } from "react";
+import { useSearchParams } from "react-router";
 
 const products: ProductDataType[] = productData;
 
 export default function Products() {
-    const [searchItemQuery, setSearchItemQuery] = useState("");
-    const [categorySelected, setCategorySelected] = useState("all");
-    const [sort, setSort] = useState("default");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchItemQuery, setSearchItemQuery] = useState(
+        searchParams.get("search") || "",
+    );
+    const [categorySelected, setCategorySelected] = useState(
+        searchParams.get("category") || "all",
+    );
+    const [sort, setSort] = useState(searchParams.get("sort") || "default");
+
+    const paramUpdates = (key: string, value: string) => {
+        const params = new URLSearchParams(searchParams);
+        if (value === "all" || value === "default") {
+            params.delete(key);
+        } else {
+            params.set(key, value);
+        }
+        setSearchParams(params);
+    };
 
     const showClearBtn =
         searchItemQuery !== "" ||
@@ -33,17 +49,23 @@ export default function Products() {
         searchItemQuery && {
             type: "search",
             label: `"${searchItemQuery}"`,
-            clear: () => setSearchItemQuery(""),
+            clear: () => {
+                (setSearchItemQuery(""), paramUpdates("search", ""));
+            },
         },
         categorySelected !== "all" && {
             type: "category",
             label: categorySelected,
-            clear: () => setCategorySelected("all"),
+            clear: () => {
+                (setCategorySelected("all"), paramUpdates("category", "all"));
+            },
         },
         sort !== "default" && {
             type: "sort",
             label: sort,
-            clear: () => setSort("default"),
+            clear: () => {
+                (setSort("default"), paramUpdates("sort", "default"));
+            },
         },
     ].filter(Boolean) as { type: string; label: string; clear: () => void }[];
 
@@ -62,7 +84,7 @@ export default function Products() {
                     All Products
                 </h1>
                 <p className="font-body text-sm text-white/40">
-                    {products.length} products found
+                    {sortedProducts.length} products found
                 </p>
             </div>
 
@@ -74,6 +96,7 @@ export default function Products() {
                         <input
                             onChange={(e) => {
                                 setSearchItemQuery(e.target.value);
+                                paramUpdates("search", e.target.value);
                             }}
                             type="text"
                             placeholder="Search products..."
@@ -83,7 +106,10 @@ export default function Products() {
                         {showClearBtn && (
                             <button className="absolute top-1/2 right-3 -translate-y-1/2 text-white/25 hover:text-white/60">
                                 <X
-                                    onClick={() => setSearchItemQuery("")}
+                                    onClick={() => {
+                                        (setSearchItemQuery(""),
+                                            paramUpdates("search", ""));
+                                    }}
                                     size={13}
                                 />
                             </button>
@@ -95,6 +121,7 @@ export default function Products() {
                             value={categorySelected}
                             onChange={(e) => {
                                 setCategorySelected(e.target.value);
+                                paramUpdates("category", e.target.value);
                             }}
                             className="h-10 min-w-40 cursor-pointer appearance-none border-0 p-2 pr-8 text-txt focus:border-0 focus:ring-0 focus:outline-none"
                         >
@@ -127,6 +154,7 @@ export default function Products() {
                         <select
                             onChange={(e) => {
                                 setSort(e.target.value);
+                                paramUpdates("sort", e.target.value);
                             }}
                             value={sort}
                             className="h-10 min-w-40 cursor-pointer appearance-none border-0 p-2 pr-8 text-txt focus:border-0 focus:ring-0 focus:outline-none"
@@ -139,6 +167,20 @@ export default function Products() {
                         </select>
                         <ChevronDown className="pointer-events-none absolute top-1/2 right-3 h-3.5 w-3.5 -translate-y-1/2 text-white/25" />
                     </div>
+                    {showClearBtn && (
+                        <button
+                            onClick={() => {
+                                setSearchItemQuery("");
+                                setCategorySelected("all");
+                                setSort("default");
+                                setSearchParams(new URLSearchParams());
+                            }}
+                            className="flex h-10 shrink-0 cursor-pointer items-center gap-1.5 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 font-body text-sm text-red-400 transition-all hover:bg-red-500/15 hover:text-red-300"
+                        >
+                            <X size={18} />
+                            Clear
+                        </button>
+                    )}
                 </div>
 
                 {activeFilter.length > 0 && (

@@ -65,8 +65,8 @@ const ProductCard = ({
                     <span className="font-heading text-xl font-bold text-volt">
                         ${price}
                     </span>
-                    <button className="flex items-center gap-2 rounded-2xl bg-volt px-3 py-2 font-body text-xs font-semibold text-ink shadow-lg transition-all duration-200 hover:bg-volt-light hover:shadow-volt/25 active:scale-95">
-                        <ShoppingCart className="h-4 w-4" />
+                    <button className="flex items-center gap-2 rounded-xl bg-volt px-3 py-2 font-body text-xs font-semibold text-ink shadow-lg transition-all duration-200 hover:bg-volt-light hover:shadow-volt/25 active:scale-95">
+                        <ShoppingCart className="h-3 w-3" />
                         Add
                     </button>
                 </div>

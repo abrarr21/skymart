@@ -250,10 +250,14 @@ export default function Home() {
                 <FeatureItem
                     items={topRatedItems.slice(0, 5)}
                     cardName={"Top Rate"}
+                    link={"/products?sort=topRated"}
+                    linkForItem={`/products`}
                 />
                 <FeatureItem
                     items={premiumItems.slice(0, 5)}
                     cardName={"Premium Products"}
+                    link={"/products?sort=highToLow"}
+                    linkForItem={"/products"}
                 />
             </section>
 

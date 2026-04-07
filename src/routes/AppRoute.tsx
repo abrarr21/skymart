@@ -1,4 +1,9 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import {
+    createBrowserRouter,
+    RouterProvider,
+    Outlet,
+    ScrollRestoration,
+} from "react-router";
 import App from "../App";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -11,44 +16,54 @@ import ProductsDetail from "../pages/ProductsDetail";
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <ProtectedRoute />,
+        element: (
+            <>
+                <ScrollRestoration />
+                <Outlet />
+            </>
+        ),
         children: [
             {
-                path: "",
-                element: <App />,
+                path: "/",
+                element: <ProtectedRoute />,
                 children: [
                     {
                         path: "",
-                        element: <Home />,
-                    },
-                    {
-                        path: "about",
-                        element: <About />,
-                    },
-                    {
-                        path: "products",
-                        element: <Products />,
-                    },
-                    {
-                        path: "products/:id",
-                        element: <ProductsDetail />,
+                        element: <App />,
+                        children: [
+                            {
+                                path: "",
+                                element: <Home />,
+                            },
+                            {
+                                path: "about",
+                                element: <About />,
+                            },
+                            {
+                                path: "products",
+                                element: <Products />,
+                            },
+                            {
+                                path: "products/:id",
+                                element: <ProductsDetail />,
+                            },
+                        ],
                     },
                 ],
             },
-        ],
-    },
-    {
-        path: "/",
-        element: <AuthProtected />,
-        children: [
             {
-                path: "login",
-                element: <Login />,
-            },
-            {
-                path: "register",
-                element: <Register />,
+                path: "/",
+                element: <AuthProtected />,
+                children: [
+                    {
+                        path: "login",
+                        element: <Login />,
+                    },
+                    {
+                        path: "register",
+                        element: <Register />,
+                    },
+                ],
             },
         ],
     },
