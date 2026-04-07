@@ -25,15 +25,22 @@ import FeatureItem from "../components/FeautreItem";
 export default function Home() {
     const { loggedInUser } = useAuth();
 
+    const time = new Date().getHours();
+
     return (
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-            <div className="relative mb-10 overflow-hidden rounded-3xl border border-white/80 bg-[#111] p-8 sm:p-12">
+            <div className="relative mb-10 overflow-hidden rounded-3xl border border-white/80 bg-[#111] bg-grid bg-size-[40px_40px] p-8 sm:p-12">
                 <div className="relative z-10 flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
                     <div>
                         <p className="mb-3 font-body text-sm tracking-widest text-volt/70 uppercase">
-                            Good morning 👋
+                            {time < 12
+                                ? "Good Morning"
+                                : time < 16
+                                  ? "Good AfterNoon"
+                                  : "Good Evening"}{" "}
+                            👋
                         </p>
-                        <h1 className="mb-4 font-heading text-4xl leading-tight font-bold text-white sm:text-5xl">
+                        <h1 className="mb-4 font-heading text-4xl leading-none font-bold text-white sm:text-5xl">
                             Welcome back,
                             <br />
                             <span className="text-volt">
@@ -120,7 +127,7 @@ export default function Home() {
                     </div>
                     <div>
                         <p className="font-heading text-2xl font-bold text-white">
-                            5
+                            {Object.keys(topRatedItems).length}
                         </p>
                         <p className="font-body text-sm text-white/50">
                             Top Products
@@ -136,7 +143,7 @@ export default function Home() {
                     </div>
                     <div>
                         <p className="font-heading text-2xl font-bold text-white">
-                            6
+                            {Object.keys(perCategoryCountResult).length}
                         </p>
                         <p className="font-body text-sm text-white/50">
                             Categories

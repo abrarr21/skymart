@@ -10,6 +10,10 @@
     --font-display: "Syne", sans-serif;
     --font-body: "DM Sans", sans-serif;
     --font-heading: "Syne", sans-serif;
+
+    --background-image-grid:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 @layer base {
