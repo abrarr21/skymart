@@ -1,6 +1,7 @@
-import { Star, ShoppingCart, Tag as BadgeIcon } from "lucide-react";
+import { Star, ShoppingCart, Tag as BadgeIcon, Check } from "lucide-react";
 import type { ProductDataType } from "../data/productData";
 import { NavLink } from "react-router";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({
     id,
@@ -8,9 +9,13 @@ const ProductCard = ({
     price,
     category,
     image,
+    description,
     rating,
     delay = 0,
 }: ProductDataType) => {
+    const { addToCart, openCart, cartItems } = useCart();
+    const inCartExist = cartItems.some((p) => p.id === id);
+
     return (
         <NavLink
             to={`/products/${id}`}
@@ -65,9 +70,31 @@ const ProductCard = ({
                     <span className="font-heading text-xl font-bold text-volt">
                         ${price}
                     </span>
-                    <button className="flex items-center gap-2 rounded-xl bg-volt px-3 py-2 font-body text-xs font-semibold text-ink shadow-lg transition-all duration-200 hover:bg-volt-light hover:shadow-volt/25 active:scale-95">
-                        <ShoppingCart className="h-3 w-3" />
-                        Add
+                    <button
+                        disabled={inCartExist}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            addToCart({
+                                id,
+                                title,
+                                price,
+                                category,
+                                image,
+                                rating,
+                                description,
+                            });
+                            openCart();
+                        }}
+                        className={`${inCartExist ? "border-[#164728] bg-[#132B1C] text-white/80" : "bg-volt text-ink hover:bg-volt-light hover:shadow-volt/25"} flex items-center gap-2 rounded-xl px-3 py-2 font-body text-xs font-semibold shadow-lg transition-all duration-200 active:scale-95`}
+                    >
+                        {inCartExist ? (
+                            <Check className="h-3 w-3" />
+                        ) : (
+                            <ShoppingCart className="h-3 w-3" />
+                        )}
+
+                        {inCartExist ? "Added" : "Add"}
                     </button>
                 </div>
             </div>

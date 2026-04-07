@@ -11,7 +11,8 @@ type FeatureProp = {
 };
 
 const FeatureItem = ({ items, cardName, link, linkForItem }: FeatureProp) => {
-    const { openCart } = useCart();
+    const { openCart, addToCart } = useCart();
+
     return (
         <div className="mb-4 rounded-3xl border border-white/50 bg-ink p-6">
             {/* Header */}
@@ -59,7 +60,10 @@ const FeatureItem = ({ items, cardName, link, linkForItem }: FeatureProp) => {
 
                         {/* Add Button */}
                         <button
-                            onClick={openCart}
+                            onClick={() => {
+                                addToCart({ ...item });
+                                openCart();
+                            }}
                             className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-volt/10 text-volt transition-all group-hover:scale-110 hover:bg-volt hover:text-ink"
                         >
                             <ShoppingBag className="h-3.5 w-3.5" />

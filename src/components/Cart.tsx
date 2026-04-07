@@ -7,16 +7,31 @@ import {
     Trash2,
     ArrowRight,
 } from "lucide-react";
-import type { ProductDataType } from "../data/productData";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export default function Cart() {
     const navigate = useNavigate();
-    const { cartOpen, closeCart } = useCart();
+    const {
+        cartOpen,
+        closeCart,
+        cartItems,
+        totalAmount,
+        incQuantity,
+        decQuantity,
+        removeFromCart,
+        clearCart,
+    } = useCart();
 
-    const items: ProductDataType[] = [];
-    // const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const closeCartFn = () => {
+        toast.success("Order placed", {
+            duration: 2000,
+            position: "bottom-right",
+        });
+        clearCart();
+        closeCart();
+    };
 
     return (
         <>
@@ -35,8 +50,10 @@ export default function Cart() {
                     <div className="flex items-center gap-3">
                         <ShoppingBag size={20} className="text-volt" />
                         <h2 className="font-heading text-lg font-bold">Cart</h2>
-                        {items.length > 0 && (
-                            <span className="text-xs text-volt">0 items</span>
+                        {cartItems.length > 0 && (
+                            <span className="text-xs text-volt">
+                                {cartItems.length} items
+                            </span>
                         )}
                     </div>
                     <button
@@ -49,7 +66,7 @@ export default function Cart() {
 
                 {/* Items */}
                 <div className="flex-1 space-y-3 overflow-y-auto px-6 py-4">
-                    {items.length === 0 ? (
+                    {cartItems.length === 0 ? (
                         <div className="flex h-full flex-col items-center justify-center gap-4 py-16 text-center">
                             <PackageOpen size={36} className="text-white/20" />
                             <p className="font-heading text-white/70">
@@ -66,7 +83,7 @@ export default function Cart() {
                             </button>
                         </div>
                     ) : (
-                        items.map((item) => (
+                        cartItems.map((item) => (
                             <div
                                 key={item.id}
                                 className="flex gap-4 rounded-2xl border border-white/8 bg-white/4 p-3"
@@ -83,19 +100,33 @@ export default function Cart() {
                                         {item.title}
                                     </p>
                                     <p className="font-heading font-bold text-volt">
-                                        ${(item.price * item.id).toFixed(2)}
+                                        $
+                                        {(item.price * item.quantity).toFixed(
+                                            2,
+                                        )}
                                     </p>
                                     <div className="mt-2 flex items-center gap-2">
-                                        <button className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/8 hover:bg-white/15">
+                                        <button
+                                            onClick={() => decQuantity(item.id)}
+                                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/8 hover:bg-white/15"
+                                        >
                                             <Minus size={11} />
                                         </button>
                                         <span className="w-5 text-center text-sm font-bold">
-                                            {item.id}
+                                            {item.quantity}
                                         </span>
-                                        <button className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/8 hover:bg-white/15">
+                                        <button
+                                            onClick={() => incQuantity(item.id)}
+                                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/8 hover:bg-white/15"
+                                        >
                                             <Plus size={11} />
                                         </button>
-                                        <button className="ml-auto text-red-400/60 hover:text-red-400">
+                                        <button
+                                            onClick={() =>
+                                                removeFromCart(item.id)
+                                            }
+                                            className="ml-auto text-red-400/60 hover:text-red-400"
+                                        >
                                             <Trash2 size={14} />
                                         </button>
                                     </div>
@@ -106,17 +137,20 @@ export default function Cart() {
                 </div>
 
                 {/* Footer */}
-                {items.length > 0 && (
+                {cartItems.length > 0 && (
                     <div className="space-y-4 border-t border-white/8 px-6 py-5">
                         <div className="flex items-center justify-between">
                             <span className="font-body text-sm text-white/50">
                                 Total
                             </span>
                             <span className="font-heading text-2xl font-bold">
-                                ${"Total"}
+                                ${totalAmount.toFixed(2)}
                             </span>
                         </div>
-                        <button className="btn-volt flex w-full items-center justify-center gap-2 py-3.5 font-heading text-base font-bold">
+                        <button
+                            onClick={closeCartFn}
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-volt py-3.5 text-base font-bold text-ink"
+                        >
                             Checkout <ArrowRight size={18} />
                         </button>
                     </div>

@@ -6,7 +6,7 @@ export interface ProductDataType {
     category: string;
     image: string;
     rating: { rate: number; count: number };
-    features: string[];
+    features?: string[];
     delay?: number;
 }
 

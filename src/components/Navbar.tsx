@@ -18,7 +18,7 @@ const Navbar = () => {
         navigate("/login");
     };
 
-    const { openCart } = useCart();
+    const { openCart, cartItems } = useCart();
 
     return (
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
@@ -75,6 +75,11 @@ const Navbar = () => {
                     className="relative cursor-pointer rounded-xl border border-white/10 bg-ink p-2.5 transition-all"
                 >
                     <ShoppingCart size={18} />
+                    {cartItems.length > 0 && (
+                        <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-volt text-[10px] font-bold text-ink">
+                            {cartItems.length}
+                        </span>
+                    )}
                 </button>
                 <button
                     onClick={onLogout}

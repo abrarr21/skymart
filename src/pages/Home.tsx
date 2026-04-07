@@ -21,9 +21,11 @@ import {
     topRatedItems,
 } from "../data/productData";
 import FeatureItem from "../components/FeautreItem";
+import { useCart } from "../context/CartContext";
 
 export default function Home() {
     const { loggedInUser } = useAuth();
+    const { cartItems, totalAmount } = useCart();
 
     const time = new Date().getHours();
 
@@ -95,7 +97,7 @@ export default function Home() {
                     </div>
                     <div>
                         <p className="font-heading text-2xl font-bold text-white">
-                            0
+                            {cartItems.length}
                         </p>
                         <p className="font-body text-sm text-white/50">
                             Cart Items
@@ -111,7 +113,7 @@ export default function Home() {
                     </div>
                     <div>
                         <p className="font-heading text-2xl font-bold text-white">
-                            $0.00
+                            ${totalAmount}
                         </p>
                         <p className="font-body text-sm text-white/50">
                             Cart Value

@@ -13,6 +13,7 @@ import { NavLink, useParams } from "react-router";
 import { productData } from "../data/productData";
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
+import { useCart } from "../context/CartContext";
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -23,6 +24,8 @@ export default function ProductDetail() {
 
     const currentIndex = prod.findIndex((obj) => obj.id === Number(id));
     const nextProductId = prod[(currentIndex + 1) % prod.length].id;
+
+    const { addToCart, openCart } = useCart();
 
     const relatedProduct = prod
         .filter(
@@ -108,7 +111,15 @@ export default function ProductDetail() {
 
                         {/* Action Buttons */}
                         <div className="flex gap-3">
-                            <button className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-volt py-3.5 font-heading text-base font-bold text-ink transition-all duration-200 hover:bg-volt-light active:scale-95">
+                            <button
+                                onClick={() => {
+                                    if (singleProduct) {
+                                        addToCart(singleProduct);
+                                        openCart();
+                                    }
+                                }}
+                                className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-volt py-3.5 font-heading text-base font-bold text-ink transition-all duration-200 hover:bg-volt-light active:scale-95"
+                            >
                                 <ShoppingCart className="h-5 w-5" />
                                 Add to Cart
                             </button>
