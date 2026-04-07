@@ -1,6 +1,7 @@
 import { Star, ArrowRight, ShoppingBag } from "lucide-react";
 import { NavLink } from "react-router";
 import type { ProductDataType } from "../data/productData";
+import { useCart } from "../context/CartContext";
 
 type FeatureProp = {
     items: ProductDataType[];
@@ -10,6 +11,7 @@ type FeatureProp = {
 };
 
 const FeatureItem = ({ items, cardName, link, linkForItem }: FeatureProp) => {
+    const { openCart } = useCart();
     return (
         <div className="mb-4 rounded-3xl border border-white/50 bg-ink p-6">
             {/* Header */}
@@ -56,7 +58,10 @@ const FeatureItem = ({ items, cardName, link, linkForItem }: FeatureProp) => {
                         </div>
 
                         {/* Add Button */}
-                        <button className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-volt/10 text-volt transition-all group-hover:scale-110 hover:bg-volt hover:text-ink">
+                        <button
+                            onClick={openCart}
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-volt/10 text-volt transition-all group-hover:scale-110 hover:bg-volt hover:text-ink"
+                        >
                             <ShoppingBag className="h-3.5 w-3.5" />
                         </button>
                     </NavLink>

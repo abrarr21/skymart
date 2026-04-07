@@ -2,6 +2,7 @@ import { LogOut, ShoppingCart, Zap } from "lucide-react";
 import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "../context/useAuth";
 import toast from "react-hot-toast";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
     const { loggedInUser, setLoggedInUser } = useAuth();
@@ -16,6 +17,8 @@ const Navbar = () => {
         });
         navigate("/login");
     };
+
+    const { openCart } = useCart();
 
     return (
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
@@ -67,7 +70,10 @@ const Navbar = () => {
                         {loggedInUser?.name}
                     </span>
                 </div>
-                <button className="relative cursor-pointer rounded-xl border border-white/10 bg-ink p-2.5 transition-all">
+                <button
+                    onClick={openCart}
+                    className="relative cursor-pointer rounded-xl border border-white/10 bg-ink p-2.5 transition-all"
+                >
                     <ShoppingCart size={18} />
                 </button>
                 <button
